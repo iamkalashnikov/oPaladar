@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>oPaladar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="theme-toggle" onclick="toggleTheme()">
+        ☀︎
+    </div>
+
+    <div class="container">
+        <div class="logo-area">
+            <span class="big-o">O</span>
+            <div class="text">
+                <h1>oPaladar</h1>
+                <p>opiniões<br>gastronomicas</p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" onclick="openModal('loginModal')">login</button>
+            <button class="btn" onclick="openModal('registerModal')">cadastre-se</button>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit" class="btn-submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Cadastre-se</h2>
+            <form>
+                <input type="text" placeholder="Nome" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit" class="btn-submit">Criar conta</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+        // Fecha o modal se clicar no fundo escuro
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
+            }
+        }
+    </script>
+
+</body>
+</html>

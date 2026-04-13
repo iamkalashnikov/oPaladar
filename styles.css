@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ec6426;
+    font-family: 'Georgia', serif;
+    transition: background-color 0.4s ease;
+    overflow: hidden; /* Evita scroll durante animações */
+}
+
+/* BOTÃO DE TEMA */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* LOGO */
+.logo-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.big-o {
+    font-size: 640px;
+    color: #fde3cf;
+    font-weight: bold;
+    line-height: 0.8;
+    transition: 0.4s;
+}
+
+.text {
+    position: absolute;
+    text-align: left;
+}
+
+.text h1 {
+    margin: 0;
+    font-size: 96px;
+    color: #632713;
+    transition: 0.4s;
+}
+
+.text p {
+    margin: 0;
+    font-size: 32px;
+    color: #632713;
+    transition: 0.4s;
+}
+
+/* BOTÕES PRINCIPAIS */
+.buttons {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    border: none;
+    text-decoration: none;
+    background-color: #fde3cf;
+    color: #632713;
+    padding: 16px 64px;
+    border-radius: 32px;
+    text-align: center;
+    font-size: 28px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    background-color: #f5d6bd;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* MODAIS (POP-UPS) */
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fde3cf;
+    color: #632713;
+    padding: 40px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+/* FORMULÁRIOS */
+.modal-content input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 12px;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    outline: none;
+}
+
+.btn-submit {
+    border: none;
+    background-color: #ec6426;
+    color: #fde3cf;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #d4551f;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+/* DARK MODE */
+body.dark {
+    background-color: #2B1A12;
+}
+
+body.dark .text h1,
+body.dark .text p {
+    color: #FDE3CF;
+}
+
+body.dark .big-o {
+    color: #EC6426;
+}
+
+body.dark .btn {
+    background-color: #EC6426;
+    color: #FDE3CF;
+}
+
+body.dark .modal-content {
+    background-color: #3d2a21;
+    color: #FDE3CF;
+}
+
+body.dark .modal-content input {
+    background-color: #2B1A12;
+    color: #FDE3CF;
+}
+
+body.dark .btn-submit {
+    background-color: #FDE3CF;
+    color: #632713;
+    font-weight: bold;
+}
