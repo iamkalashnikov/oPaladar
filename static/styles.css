@@ -4,10 +4,9 @@ body {
     background-color: #ec6426;
     font-family: 'Georgia', serif;
     transition: background-color 0.4s ease;
-    overflow: hidden; /* Evita scroll durante animações */
+    overflow: hidden; 
 }
 
-/* BOTÃO DE TEMA */
 .theme-toggle {
     position: absolute;
     top: 20px;
@@ -17,7 +16,6 @@ body {
     z-index: 5;
 }
 
-/* CONTAINER */
 .container {
     display: flex;
     flex-direction: column;
@@ -26,7 +24,6 @@ body {
     height: 100vh;
 }
 
-/* LOGO */
 .logo-area {
     position: relative;
     display: flex;
@@ -61,7 +58,6 @@ body {
     transition: 0.4s;
 }
 
-/* BOTÕES PRINCIPAIS */
 .buttons {
     margin-top: 64px;
     display: flex;
@@ -92,7 +88,6 @@ body {
     transform: scale(0.95);
 }
 
-/* MODAIS (POP-UPS) */
 .modal {
     visibility: hidden;
     opacity: 0;
@@ -132,7 +127,6 @@ body {
     transform: translateY(0);
 }
 
-/* FORMULÁRIOS */
 .modal-content input {
     width: 100%;
     box-sizing: border-box;

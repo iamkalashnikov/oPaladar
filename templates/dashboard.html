@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>oPaladar - Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+    <div class="theme-toggle" onclick="toggleTheme()">
+        ☀︎
+    </div>
+
+    <div class="container">
+        
+        {% if messages %}
+        <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+            {% for message in messages %}
+                <div style="background-color: #fde3cf; color: #632713; padding: 15px 30px; border-radius: 12px; margin-bottom: 10px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="logo-area" style="margin-bottom: 40px;">
+            <div class="text" style="position: relative; text-align: center;">
+                <h1 style="font-size: 64px;">Olá, {{ user.first_name }}!</h1>
+                <p style="font-size: 24px;">Bem-vindo(a) ao seu painel.</p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="{% url 'logout' %}" class="btn">sair da conta</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+
+</body>
+</html>
