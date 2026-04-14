@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>oPaladar</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
 
@@ -20,6 +21,24 @@
             </div>
         </div>
 
+        {% if messages %}
+    <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+        {% for message in messages %}
+            <div style="background-color: #fde3cf; color: #632713; padding: 15px 30px; border-radius: 12px; margin-bottom: 10px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}{% if messages %}
+    <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+        {% for message in messages %}
+            <div style="background-color: #fde3cf; color: #632713; padding: 15px 30px; border-radius: 12px; margin-bottom: 10px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
         <div class="buttons">
             <button class="btn" onclick="openModal('loginModal')">login</button>
             <button class="btn" onclick="openModal('registerModal')">cadastre-se</button>
@@ -27,29 +46,33 @@
     </div>
 
     <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h2>Login</h2>
-            <form>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
-                <button type="submit" class="btn-submit">Entrar</button>
-            </form>
-        </div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>Login</h2>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit" class="btn-submit">Entrar</button>
+        </form>
     </div>
+</div>
 
     <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('registerModal')">&times;</span>
-            <h2>Cadastre-se</h2>
-            <form>
-                <input type="text" placeholder="Nome" required>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
-                <button type="submit" class="btn-submit">Criar conta</button>
-            </form>
-        </div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h2>Cadastre-se</h2>
+        <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit" class="btn-submit">Criar conta</button>
+        </form>
     </div>
+</div>
 
     <script>
         function toggleTheme() {
