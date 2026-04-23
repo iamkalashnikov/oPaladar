@@ -59,3 +59,9 @@ def logout_view(request):
 @login_required(login_url='home')
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+def sobre(request):
+    return render(request, 'sobre.html')
