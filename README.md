@@ -63,35 +63,37 @@ Siga este passo a passo para rodar o projeto localmente no seu computador.
 
 ### 1. Clonar o repositório
 
-```bash
+
 git clone https://github.com/iamkalashnikov/oPaladar.git
 
 2. Entrar na pasta do projeto
 cd oPaladar
+
 3. Criar o ambiente virtual
 Windows
 python -m venv venv
-Linux/macOS
-python3 -m venv venv
 4. Ativar o ambiente virtual
 Windows
 venv\Scripts\activate
-Linux/macOS
-source venv/bin/activate
+
 5. Instalar o Django
 pip install django
+
 6. Criar as migrações do projeto
 python manage.py makemigrations
+
 7. Aplicar as migrações no banco de dados
 python manage.py migrate
+
 8. Criar um superusuário (opcional, para acessar o admin)
 python manage.py createsuperuser
+
 9. Iniciar o servidor
 python manage.py runserver
+
 10. Acessar o projeto no navegador
 
-Abra o navegador e entre em:
+Abra o navegador e coloque o diretorio raiz
 
-http://127.0.0.1:8000/
 
 
