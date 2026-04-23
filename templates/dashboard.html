@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="icon" href="{% static 'logo.ico' %}" type="image/x-icon"> 
+    <link rel="icon" href="{% static 'logo.ico' %}" type="image/x-icon">
     <meta charset="UTF-8">
-    <title>oPaladar - Dashboard</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oPaladar</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
 </head>
 <body>
 
@@ -14,21 +15,20 @@
     </div>
 
     <div class="container">
-        
         {% if messages %}
-        <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+        <div class="messages-wrapper">
             {% for message in messages %}
-                <div style="background-color: #fde3cf; color: #632713; padding: 15px 30px; border-radius: 12px; margin-bottom: 10px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <div class="message-box">
                     {{ message }}
                 </div>
             {% endfor %}
         </div>
         {% endif %}
 
-        <div class="logo-area" style="margin-bottom: 40px;">
-            <div class="text" style="position: relative; text-align: center;">
-                <h1 style="font-size: 64px;">Olá, {{ user.first_name }}!</h1>
-                <p style="font-size: 24px;">Bem-vindo(a) ao seu painel.</p>
+        <div class="logo-area dashboard-header">
+            <div class="text dashboard-text">
+                <h1>Olá, {{ user.first_name }}!</h1>
+                <p>Bem-vindo(a) ao seu painel.</p>
             </div>
         </div>
 

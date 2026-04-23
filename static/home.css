@@ -1,23 +1,16 @@
 :root {
     --bg: #ec6426;
     --bg-dark: #2B1A12;
-
     --surface: #fde3cf;
     --surface-dark: #3d2a21;
-
     --text: #632713;
     --text-dark: #FDE3CF;
-
     --accent: #ec6426;
     --accent-dark: #FDE3CF;
-
     --shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
     --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.10);
-
-    --radius-lg: 2rem;
     --radius-md: 1rem;
     --radius-sm: 0.75rem;
-
     --container-width: 1200px;
     --transition: 0.35s ease;
 }
@@ -39,9 +32,7 @@ body {
     background-color: var(--bg);
     font-family: 'Georgia', serif;
     color: var(--text);
-    transition:
-        background-color var(--transition),
-        color var(--transition);
+    transition: background-color var(--transition), color var(--transition);
     overflow-x: hidden;
 }
 
@@ -54,10 +45,7 @@ body.dark {
     width: min(100%, var(--container-width));
     min-height: 100vh;
     margin: 0 auto;
-    padding:
-        clamp(1rem, 2vw, 1.5rem)
-        clamp(1rem, 4vw, 2.5rem)
-        clamp(2rem, 5vw, 3rem);
+    padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 4vw, 2.5rem) clamp(2rem, 5vw, 3rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,10 +68,7 @@ body.dark {
     border-radius: 999px;
     background: rgba(253, 227, 207, 0.18);
     backdrop-filter: blur(6px);
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        color 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
     user-select: none;
 }
 
@@ -151,6 +136,26 @@ body.dark .text p {
     color: var(--text-dark);
 }
 
+.messages-wrapper {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: min(90%, 520px);
+}
+
+.message-box {
+    background-color: #fde3cf;
+    color: #632713;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
 .buttons {
     width: min(100%, 420px);
     display: flex;
@@ -172,11 +177,7 @@ body.dark .text p {
     font-weight: 600;
     cursor: pointer;
     box-shadow: var(--shadow-soft);
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
     min-height: 56px;
     display: inline-flex;
     justify-content: center;
@@ -202,24 +203,6 @@ body.dark .btn:hover {
     background-color: #d95c22;
 }
 
-.messages,
-.alert,
-.message {
-    width: min(100%, 520px);
-    background: rgba(253, 227, 207, 0.95);
-    color: var(--text);
-    border-radius: var(--radius-md);
-    padding: 0.9rem 1rem;
-    box-shadow: var(--shadow-soft);
-}
-
-body.dark .messages,
-body.dark .alert,
-body.dark .message {
-    background: rgba(61, 42, 33, 0.95);
-    color: var(--text-dark);
-}
-
 .modal {
     visibility: hidden;
     opacity: 0;
@@ -231,9 +214,7 @@ body.dark .message {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal.show {
@@ -286,9 +267,7 @@ body.dark .modal-content {
     font-family: inherit;
     font-size: 1rem;
     outline: none;
-    transition:
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .modal-content input:focus {
@@ -317,9 +296,7 @@ body.dark .modal-content input::placeholder {
     cursor: pointer;
     font-family: inherit;
     font-weight: 700;
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
 .btn-submit:hover {
@@ -343,9 +320,7 @@ body.dark .btn-submit:hover {
     font-size: 1.6rem;
     cursor: pointer;
     opacity: 0.55;
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
     line-height: 1;
 }
 
@@ -354,73 +329,7 @@ body.dark .btn-submit:hover {
     transform: scale(1.08);
 }
 
-.dashboard-container,
-.dashboard,
-.painel {
-    width: min(100%, 1100px);
-    margin: 0 auto;
-    padding: clamp(1.25rem, 3vw, 2.5rem);
-}
-
-.dashboard-card,
-.welcome-card,
-.card {
-    background: rgba(253, 227, 207, 0.96);
-    color: var(--text);
-    border-radius: 1.5rem;
-    padding: clamp(1.25rem, 3vw, 2rem);
-    box-shadow: var(--shadow);
-}
-
-body.dark .dashboard-card,
-body.dark .welcome-card,
-body.dark .card {
-    background: rgba(61, 42, 33, 0.96);
-    color: var(--text-dark);
-}
-
-.dashboard h1,
-.dashboard-container h1,
-.painel h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1.05;
-    margin-bottom: 0.75rem;
-}
-
-.dashboard p,
-.dashboard-container p,
-.painel p {
-    font-size: clamp(1rem, 2.4vw, 1.15rem);
-    line-height: 1.6;
-}
-
-a {
-    color: inherit;
-}
-
-@media (max-width: 900px) {
-    .container {
-        justify-content: center;
-    }
-
-    .logo-area {
-        min-height: clamp(220px, 52vw, 420px);
-    }
-
-    .text {
-        width: min(88vw, 460px);
-    }
-
-    .buttons {
-        width: min(100%, 360px);
-    }
-}
-
 @media (max-width: 640px) {
-    body {
-        overflow-x: hidden;
-    }
-
     .container {
         padding-top: 4.5rem;
         padding-bottom: 2rem;
@@ -454,60 +363,8 @@ a {
         font-size: clamp(1rem, 5vw, 1.35rem);
     }
 
-    .buttons {
-        gap: 0.8rem;
-    }
-
     .btn {
         padding: 0.95rem 1rem;
         font-size: 1rem;
-    }
-
-    .modal {
-        padding: 0.75rem;
-    }
-
-    .modal-content {
-        border-radius: 1.2rem;
-    }
-}
-
-@media (max-width: 420px) {
-    .container {
-        gap: 1.2rem;
-    }
-
-    .logo-area {
-        min-height: 230px;
-    }
-
-    .text {
-        width: 82vw;
-    }
-
-    .text h1 {
-        font-size: 1.8rem;
-    }
-
-    .text p {
-        font-size: 0.95rem;
-    }
-
-    .btn {
-        min-height: 52px;
-    }
-
-    .modal-content {
-        padding: 1.25rem 1rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
     }
 }

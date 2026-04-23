@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="icon" href="{% static 'logo.ico' %}" type="image/x-icon">  
+    <link rel="icon" href="{% static 'logo.ico' %}" type="image/x-icon">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>oPaladar</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
 </head>
 <body>
 
@@ -23,22 +24,14 @@
         </div>
 
         {% if messages %}
-    <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); z-index: 1000;">
-        {% for message in messages %}
-            <div style="background-color: #fde3cf; color: #632713; padding: 15px 30px; border-radius: 12px; margin-bottom: 10px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                {{ message }}
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}{% if messages %}
-    <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); z-index: 1000;">
-        {% for message in messages %}
-            <div style="background-color: #fde3cf; color: #632713; padding: 15px 30px; border-radius: 12px; margin-bottom: 10px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                {{ message }}
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}
+        <div class="messages-wrapper">
+            {% for message in messages %}
+                <div class="message-box">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
 
         <div class="buttons">
             <button class="btn" onclick="openModal('loginModal')">login</button>
@@ -47,33 +40,31 @@
     </div>
 
     <div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('loginModal')">&times;</span>
-        <h2>Login</h2>
-        <form method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-            
-            <input type="email" name="email" placeholder="E-mail" required>
-            <input type="password" name="password" placeholder="Senha" required>
-            <button type="submit" class="btn-submit">Entrar</button>
-        </form>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button type="submit" class="btn-submit">Entrar</button>
+            </form>
+        </div>
     </div>
-</div>
 
     <div id="registerModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('registerModal')">&times;</span>
-        <h2>Cadastre-se</h2>
-        <form method="POST" action="{% url 'register' %}">
-            {% csrf_token %}
-            
-            <input type="text" name="nome" placeholder="Nome" required>
-            <input type="email" name="email" placeholder="E-mail" required>
-            <input type="password" name="password" placeholder="Senha" required>
-            <button type="submit" class="btn-submit">Criar conta</button>
-        </form>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Cadastre-se</h2>
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button type="submit" class="btn-submit">Criar conta</button>
+            </form>
+        </div>
     </div>
-</div>
 
     <script>
         function toggleTheme() {
@@ -88,7 +79,6 @@
             document.getElementById(modalId).classList.remove('show');
         }
 
-        // Fecha o modal se clicar no fundo escuro
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.classList.remove('show');
